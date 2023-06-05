@@ -29,6 +29,7 @@
     ],
     "require": {
         "php": ">=7.3",
+        "ext-json": "*",
         "nigelcunningham/rialto": "master",
         "psr/log": "^1.0 || ^2.0 || ^3.0",
         "vierbergenlars/php-semver": "dev-patch-1"
@@ -51,7 +52,8 @@
     },
     "scripts": {
         "post-install-cmd": "npm install",
-        "test": "./vendor/bin/phpunit"
+        "test": "./vendor/bin/phpunit",
+        "update-docs": "php bin/console doc:generate"
     },
     "config": {
         "sort-packages": true

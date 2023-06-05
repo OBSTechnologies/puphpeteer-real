@@ -2,6 +2,8 @@
 
 namespace NigelCunningham\Puphpeteer;
 
+use NigelCunningham\Puphpeteer\Resources\Browser;
+use NigelCunningham\Puphpeteer\Resources\BrowserFetcher;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Process\Process;
 use NigelCunningham\Rialto\AbstractEntryPoint;
@@ -10,12 +12,27 @@ use vierbergenlars\SemVer\{version, expression, SemVerException};
 /**
  * @property-read mixed devices
  * @property-read mixed errors
- * @method \NigelCunningham\Puphpeteer\Resources\Browser connect(array<string, mixed> $options)
+ * @property-read mixed networkConditions
+ * @property-read string product
+ * @method \NigelCunningham\Puphpeteer\Resources\Browser connect(array $options)
+ * @method-extended \NigelCunningham\Puphpeteer\Resources\Browser connect(array<string, mixed> $options)
  * @method \NigelCunningham\Puphpeteer\Resources\Browser launch(array<string, mixed> $options)
  * @method void registerCustomQueryHandler(string $name, mixed $queryHandler)
+ * @method-extended void registerCustomQueryHandler(string $name, mixed $queryHandler)
  * @method void unregisterCustomQueryHandler(string $name)
+ * @method-extended void unregisterCustomQueryHandler(string $name)
  * @method string[] customQueryHandlerNames()
+ * @method-extended string[] customQueryHandlerNames()
  * @method void clearCustomQueryHandlers()
+ * @method-extended void clearCustomQueryHandlers()
+ * @method \NigelCunningham\Puphpeteer\Resources\Browser launch(array $options = [])
+ * @method-extended \NigelCunningham\Puphpeteer\Resources\Browser launch(array<string, mixed>&array{ product: mixed, extraPrefsFirefox: array|string[]|mixed[] } $options = null)
+ * @method string executablePath(string $channel = null)
+ * @method-extended string executablePath(string $channel = null)
+ * @method string[] defaultArgs(array $options = [])
+ * @method-extended string[] defaultArgs(array<string, mixed> $options = null)
+ * @method \NigelCunningham\Puphpeteer\Resources\BrowserFetcher createBrowserFetcher(array $options)
+ * @method-extended \NigelCunningham\Puphpeteer\Resources\BrowserFetcher createBrowserFetcher(array<string, mixed> $options)
  */
 class Puppeteer extends AbstractEntryPoint
 {

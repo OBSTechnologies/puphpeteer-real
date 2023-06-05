@@ -2,11 +2,12 @@
 
 namespace NigelCunningham\Puphpeteer\Traits;
 
+use NigelCunningham\Puphpeteer\Resources\JSHandle;
 use NigelCunningham\Rialto\Data\JsFunction;
 
 /**
- * @method bool|int|float|string|array|null querySelectorEval(string $selector, JsFunction $pageFunction, bool|int|float|string|array|null|JSHandle ...args)
- * @method bool|int|float|string|array|null querySelectorAllEval(string $selector, JsFunction $pageFunction, bool|int|float|string|array|null|JSHandle ...args)
+ * @method bool|int|float|string|array|null querySelectorEval(string $selector, JsFunction $pageFunction, bool|int|float|string|array|null|JSHandle ...$args)
+ * @method bool|int|float|string|array|null querySelectorAllEval(string $selector, JsFunction $pageFunction, bool|int|float|string|array|null|JSHandle ...$args)
  */
 trait AliasesEvaluationMethods
 {
