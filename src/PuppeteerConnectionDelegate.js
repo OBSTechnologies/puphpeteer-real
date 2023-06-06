@@ -1,9 +1,9 @@
 'use strict';
 
-const {ConnectionDelegate} = require('@NigelCunningham/rialto'),
-    Logger = require('@NigelCunningham/rialto/src/node-process/Logger'),
-    ConsoleInterceptor = require('@NigelCunningham/rialto/src/node-process/NodeInterceptors/ConsoleInterceptor'),
-    StandardStreamsInterceptor = require('@NigelCunningham/rialto/src/node-process/NodeInterceptors/StandardStreamsInterceptor');
+const {ConnectionDelegate} = require('@nigelcunningham/rialto'),
+    Logger = require('@nigelcunningham/rialto/src/node-process/Logger'),
+    ConsoleInterceptor = require('@nigelcunningham/rialto/src/node-process/NodeInterceptors/ConsoleInterceptor'),
+    StandardStreamsInterceptor = require('@nigelcunningham/rialto/src/node-process/NodeInterceptors/StandardStreamsInterceptor');
 
 /**
  * Handle the requests of a connection to control Puppeteer.
