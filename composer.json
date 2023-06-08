@@ -32,7 +32,7 @@
         "ext-json": "*",
         "nigelcunningham/rialto": "master",
         "psr/log": "^1.0 || ^2.0 || ^3.0",
-        "vierbergenlars/php-semver": "dev-patch-1"
+        "vierbergenlars/php-semver": "master"
     },
     "require-dev": {
         "monolog/monolog": "^2.0",
