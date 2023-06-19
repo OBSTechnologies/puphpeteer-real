@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "@nigelcunningham/rialto": "^1.2.1",
-    "puppeteer": "^19.0"
+    "puppeteer": "^19.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "devDependencies": {
     "@types/yargs": "^15.0.10",
