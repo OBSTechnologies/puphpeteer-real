@@ -1,16 +1,16 @@
 'use strict';
 
-const puppeteer = require('puppeteer-extra'),
-    {ConnectionDelegate} = require('@nigelcunningham/rialto'),
-    Logger = require('@nigelcunningham/rialto/src/node-process/Logger'),
-    ConsoleInterceptor = require('@nigelcunningham/rialto/src/node-process/NodeInterceptors/ConsoleInterceptor'),
-    StandardStreamsInterceptor = require('@nigelcunningham/rialto/src/node-process/NodeInterceptors/StandardStreamsInterceptor');
+const puppeteer = require('puppeteer-extra');
+const { ConnectionDelegate } = require('@nigelcunningham/rialto');
+const Logger = require('@nigelcunningham/rialto/src/node-process/Logger');
+const ConsoleInterceptor = require('@nigelcunningham/rialto/src/node-process/NodeInterceptors/ConsoleInterceptor');
+const StandardStreamsInterceptor = require('@nigelcunningham/rialto/src/node-process/NodeInterceptors/StandardStreamsInterceptor');
+const { loadRealBrowser, addExtraDirectives } = require('puppeteer-real-browser');
 
 /**
  * Handle the requests of a connection to control Puppeteer.
  */
-class PuppeteerConnectionDelegate extends ConnectionDelegate
-{
+class PuppeteerConnectionDelegate extends ConnectionDelegate {
     /**
      * Constructor.
      *
@@ -29,8 +29,15 @@ class PuppeteerConnectionDelegate extends ConnectionDelegate
      */
     async handleInstruction(instruction, responseHandler, errorHandler) {
         const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-		puppeteer.use(StealthPlugin());
-        instruction.setDefaultResource(puppeteer);
+        puppeteer.use(StealthPlugin());
+
+        // Use puppeteer-real-browser to load the real browser
+        const realBrowser = await loadRealBrowser({
+            puppeteer,
+            directives: addExtraDirectives({}),
+        });
+        
+        instruction.setDefaultResource(realBrowser);
 
         let value = null;
 
